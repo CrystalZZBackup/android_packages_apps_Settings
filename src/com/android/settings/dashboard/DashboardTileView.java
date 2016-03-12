@@ -18,6 +18,8 @@ package com.android.settings.dashboard;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -32,6 +34,7 @@ import com.android.settings.Utils;
 public class DashboardTileView extends FrameLayout implements View.OnClickListener {
 
     private static final int DEFAULT_COL_SPAN = 1;
+    private static final String DASHBOARD_DIVIDER_SHOW = "dashboard_divider_show";
 
     private ImageView mImageView;
     private TextView mTitleTextView;
@@ -42,19 +45,23 @@ public class DashboardTileView extends FrameLayout implements View.OnClickListen
 
     private DashboardTile mTile;
 
-    public DashboardTileView(Context context) {
-        this(context, null);
+    public DashboardTileView(Context context, boolean compactMode) {
+        this(context, null, compactMode);
     }
 
-    public DashboardTileView(Context context, AttributeSet attrs) {
+    public DashboardTileView(Context context, AttributeSet attrs, boolean compactMode) {
         super(context, attrs);
 
-        final View view = LayoutInflater.from(context).inflate(R.layout.dashboard_tile, this);
+        final View view = LayoutInflater.from(mContext).inflate(compactMode ?
+                R.layout.dashboard_tile_compact : R.layout.dashboard_tile, this);
 
         mImageView = (ImageView) view.findViewById(R.id.icon);
         mTitleTextView = (TextView) view.findViewById(R.id.title);
         mStatusTextView = (TextView) view.findViewById(R.id.status);
         mDivider = view.findViewById(R.id.tile_divider);
+
+        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        mDivider.setVisibility(prefs.getBoolean(DASHBOARD_DIVIDER_SHOW, true) ? View.VISIBLE : View.GONE);
 
         setOnClickListener(this);
         setBackgroundResource(R.drawable.dashboard_tile_background);
