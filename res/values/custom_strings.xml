@@ -144,4 +144,23 @@
 
     <string name="heads_up_notifications_enabled_title">Allow peeking</string>
     <string name="heads_up_notifications_enabled_summary">Allow or disable peeking for all notifications</string>
+
+    <string name="status_bar_ime_notification_title">Show notification</string>
+    <string name="status_bar_ime_notification_summary">If navigation bar is not available</string>
+    <string name="navigation_bar_ime_button_title">Show navigation bar button</string>
+    <string name="navigation_bar_ime_button_summary">Input switcher in navigation bar</string>
+    <string name="input_method_category">Input method switcher</string>
+
+    <!-- Hostname setting -->
+    <string name="device_hostname">Device hostname</string>
+
+    <!-- Format string for fingerprint location message -->
+    <string name="security_settings_fingerprint_enroll_find_sensor_message_cm">Locate the fingerprint sensor on the <xliff:g id="sensor_location">%1$s</xliff:g> of your phone.</string>
+
+    <!-- Fingerprint sensor locations -->
+    <string name="security_settings_fingerprint_sensor_location_back">back</string>
+    <string name="security_settings_fingerprint_sensor_location_front">front</string>
+    <string name="security_settings_fingerprint_sensor_location_left">left side</string>
+    <string name="security_settings_fingerprint_sensor_location_right">right side</string>
+
 </resources>

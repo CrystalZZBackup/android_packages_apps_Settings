@@ -137,7 +137,7 @@ public final class BluetoothSettings extends DeviceListPreferenceFragment implem
 
         mEmptyView = (TextView) getView().findViewById(android.R.id.empty);
         getListView().setEmptyView(mEmptyView);
-        mEmptyView.setGravity(Gravity.START | Gravity.CENTER_VERTICAL);
+        mEmptyView.setGravity(Gravity.CENTER_VERTICAL | Gravity.CENTER_HORIZONTAL);
 
         final SettingsActivity activity = (SettingsActivity) getActivity();
         mSwitchBar = activity.getSwitchBar();
@@ -425,7 +425,7 @@ public final class BluetoothSettings extends DeviceListPreferenceFragment implem
         getPreferenceScreen().removeAll();
         Spannable boldSpan = (Spannable) mEmptyView.getText();
         boldSpan.setSpan(
-                new TextAppearanceSpan(getActivity(), android.R.style.TextAppearance_Medium), 0,
+                new TextAppearanceSpan(getActivity(), android.R.style.TextAppearance_Small), 0,
                 briefText.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
     }
 
